@@ -11,12 +11,11 @@ import (
 )
 
 /*
-	Ideas:
-	- Need to find a way to determine if the cluster being upgrade is a FedRAMP cluster as this only applies there
+	ToDo:
+	- Need to find a way to determine if the cluster being upgraded is a FedRAMP cluster fro within cluster as this only applies there
 		- information is not available in the UpgradeConfig
 		- is there something in cluster we can get to determine if its FR, since clusterdeployments are on hive only?
 		- something added/in OCM?
-
 */
 
 // PostUpgradeProcedures are any misc tasks that are needed to be completed after an upgrade has finished to ensure healthy state
@@ -34,18 +33,18 @@ func (c *clusterUpgrader) PostUpgradeFIOReInit(ctx context.Context, logger logr.
 	instance := &fileintegrityv1alpha1.FileIntegrity{}
 	var osd_file_integrity = types.NamespacedName{Namespace: "openshift-file-integrity", Name: "osd-file-integrity"}
 
-	// create client to connect to cluster since we are not in reconcile loop here
+	// Create a client to connect to cluster since we are not in a reconcile loop here
 	kubeConfig := controllerruntime.GetConfigOrDie()
 	kclient, err := client.New(kubeConfig, client.Options{})
 	if err != nil {
 		return err
 	}
-	// get object like reconcile get
+	// Get the FileIntegrity object
 	err = kclient.Get(ctx, osd_file_integrity, instance)
 	if err != nil {
 		return err
 	}
-	// add annotation
+	// Add the re-init annotation
 	instance.Annotations["file-integrity.openshift.io/re-init"] = ""
 	err = kclient.Update(ctx, instance)
 	if err != nil {
