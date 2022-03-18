@@ -18,11 +18,12 @@ require (
 	github.com/onsi/gomega v1.15.0
 	github.com/openshift/api v3.9.1-0.20190424152011-77b8897ec79a+incompatible
 	github.com/openshift/cluster-version-operator v3.11.1-0.20190629164025-08cac1c02538+incompatible
+	github.com/openshift/file-integrity-operator v0.1.22
 	github.com/openshift/library-go v0.0.0-20210825122301-7f0bf922c345
 	github.com/openshift/machine-api-operator v0.2.1-0.20210917195819-eb6706653664
 	github.com/openshift/machine-config-operator v0.0.1-0.20211002010814-6cf167014583
 	github.com/openshift/operator-custom-metrics v0.4.2
-	github.com/operator-framework/operator-sdk v0.18.2
+	github.com/operator-framework/operator-sdk v0.19.4
 	github.com/prometheus/alertmanager v0.20.0
 	github.com/prometheus/client_golang v1.11.0
 	github.com/prometheus/common v0.26.0
