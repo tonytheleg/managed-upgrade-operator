@@ -4,10 +4,10 @@ import (
 	"context"
 
 	"github.com/go-logr/logr"
-	fileintegrityv1alpha1 "github.com/openshift/file-integrity-operator/pkg/apis/fileintegrity/v1alpha1"
-	"k8s.io/apimachinery/pkg/types"
-	controllerruntime "sigs.k8s.io/controller-runtime"
-	"sigs.k8s.io/controller-runtime/pkg/client"
+	v1 "k8s.io/apimachinery/pkg/apis/meta/v1"
+	"k8s.io/apimachinery/pkg/runtime/schema"
+	"k8s.io/client-go/dynamic"
+	"k8s.io/client-go/rest"
 )
 
 /*
@@ -29,25 +29,36 @@ func (c *clusterUpgrader) PostUpgradeProcedures(ctx context.Context, logger logr
 
 // PostUpgradeFIOReInit reinitializes the AIDE DB in file integrity operator to track file changes due to upgrades
 func (c *clusterUpgrader) PostUpgradeFIOReInit(ctx context.Context, logger logr.Logger) error {
-	logger.Info("Fetching File Integrity for re-initialization")
-	instance := &fileintegrityv1alpha1.FileIntegrity{}
-	var osd_file_integrity = types.NamespacedName{Namespace: "openshift-file-integrity", Name: "osd-file-integrity"}
+	config, err := rest.InClusterConfig()
+	if err != nil {
+		return err
+	}
 
-	// Create a client to connect to cluster since we are not in a reconcile loop here
-	kubeConfig := controllerruntime.GetConfigOrDie()
-	kclient, err := client.New(kubeConfig, client.Options{})
+	dynamicClient, err := dynamic.NewForConfig(config)
 	if err != nil {
 		return err
 	}
-	// Get the FileIntegrity object
-	err = kclient.Get(ctx, osd_file_integrity, instance)
+
+	gvr := schema.GroupVersionResource{
+		Group:    "fileintegrity.openshift.io",
+		Version:  "v1alpha1",
+		Resource: "fileintegrities",
+	}
+
+	logger.Info("Fetching File Integrity for re-initialization")
+	fio, err := dynamicClient.Resource(gvr).Namespace("openshift-file-integrity").Get(context.Background(), "example-fileintegrity", v1.GetOptions{})
 	if err != nil {
+		logger.Error(err, "Failed to get File Integrity object")
 		return err
 	}
-	// Add the re-init annotation
-	instance.Annotations["file-integrity.openshift.io/re-init"] = ""
-	err = kclient.Update(ctx, instance)
+
+	logger.Info("Setting re-init annotation")
+	reinit := map[string]string{"file-integrity.openshift.io/re-init": ""}
+	fio.SetAnnotations(reinit)
+	_, err = dynamicClient.Resource(gvr).Namespace("openshift-file-integrity").Update(context.Background(), fio, v1.UpdateOptions{})
+
 	if err != nil {
+		logger.Error(err, "Failed to annotate File Integrity object")
 		return err
 	}
 	return nil

@@ -5,6 +5,7 @@ go 1.16
 require (
 	github.com/blang/semver v3.5.1+incompatible
 	github.com/coreos/prometheus-operator v0.38.1-0.20200424145508-7e176fda06cc
+	github.com/fatih/color v1.10.0 // indirect
 	github.com/go-logr/logr v0.4.0
 	github.com/go-openapi/runtime v0.19.4
 	github.com/go-openapi/strfmt v0.19.5
@@ -18,17 +19,18 @@ require (
 	github.com/onsi/gomega v1.15.0
 	github.com/openshift/api v3.9.1-0.20190424152011-77b8897ec79a+incompatible
 	github.com/openshift/cluster-version-operator v3.11.1-0.20190629164025-08cac1c02538+incompatible
-	github.com/openshift/file-integrity-operator v0.1.22
 	github.com/openshift/library-go v0.0.0-20210825122301-7f0bf922c345
 	github.com/openshift/machine-api-operator v0.2.1-0.20210917195819-eb6706653664
 	github.com/openshift/machine-config-operator v0.0.1-0.20211002010814-6cf167014583
 	github.com/openshift/operator-custom-metrics v0.4.2
-	github.com/operator-framework/operator-sdk v0.18.2
+	github.com/operator-framework/operator-sdk v0.19.4
 	github.com/prometheus/alertmanager v0.20.0
 	github.com/prometheus/client_golang v1.11.0
 	github.com/prometheus/common v0.26.0
 	github.com/sykesm/zap-logfmt v0.0.4
 	go.uber.org/zap v1.19.0
+	golang.org/x/tools v0.1.4 // indirect
+	gopkg.in/check.v1 v1.0.0-20200902074654-038fdea0a05b // indirect
 	gopkg.in/yaml.v2 v2.4.0
 	k8s.io/api v0.22.1
 	k8s.io/apimachinery v0.22.1
