@@ -1,0 +1,45 @@
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: managed-upgrade-operator-config-get
+  namespace: openshift-managed-upgrade-operator
+rules:
+- apiGroups:
+  - ""
+  resources:
+  - configmaps
+  - secrets
+  - services
+  - services/finalizers
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - update
+  - watch
+- apiGroups:
+  - apps
+  resources:
+  - deployments
+  - deployments/finalizers
+  - replicasets
+  verbs:
+  - get
+  - list
+  - update
+  - watch
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: managed-upgrade-operator-config-get
+  namespace: openshift-managed-upgrade-operator
+roleRef:
+  kind: Role
+  name: managed-upgrade-operator-config-get
+subjects:
+- kind: ServiceAccount
+  name: managed-upgrade-operator
+  namespace: test-managed-upgrade-operator
