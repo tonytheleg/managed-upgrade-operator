@@ -1,0 +1,12 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: muo-fio
+  namespace: openshift-file-integrity
+roleRef:
+  kind: ClusterRole
+  name: file-integrity-operator-admin
+subjects:
+- kind: ServiceAccount
+  name: managed-upgrade-operator
+  namespace: test-managed-upgrade-operator
