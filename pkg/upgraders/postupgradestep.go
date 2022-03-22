@@ -5,6 +5,7 @@ import (
 	"fmt"
 
 	"github.com/go-logr/logr"
+	"github.com/openshift/managed-upgrade-operator/pkg/ocm"
 	v1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/apimachinery/pkg/runtime/schema"
 	"k8s.io/client-go/dynamic"
@@ -23,10 +24,22 @@ var (
 		- information is not available in the UpgradeConfig
 		- is there something in cluster we can get to determine if its FR, since clusterdeployments are on hive only?
 		- something added/in OCM?
+
+	Solution: We can trigger of the OCM base URL for API calls available in the managed-upgrade-operator-config deployed by MCC.
+			  This tells MUO what OCM to poll, and since the OCM API is region specific, we can check for the FedRAMP OCM API address first
 */
 
 // PostUpgradeProcedures are any misc tasks that are needed to be completed after an upgrade has finished to ensure healthy state
 func (c *clusterUpgrader) PostUpgradeProcedures(ctx context.Context, logger logr.Logger) (bool, error) {
+
+	// FIO is a FedRAMP specific operator, PostUpgradeFIOReInit is only for FedRAMP clusters
+	// Check if this is an FR environment via OCM first
+	ocmConfig := ocm.OcmClientConfig{}
+	ocmBaseUrl := ocmConfig.GetOCMBaseURL()
+	fmt.Println("OCM BASE URL is ", ocmBaseUrl.Host)
+	if ocmBaseUrl.Host != "api.stage.openshift.com" {
+		logger.Info("Non-FedRAMP environment...skipping PostUpgradeFIOReInit ")
+	}
 	err := c.PostUpgradeFIOReInit(ctx, logger)
 	if err != nil {
 		return false, err

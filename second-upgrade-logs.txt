@@ -1,0 +1,519 @@
+ts=2022-03-22T17:41:45Z level=info logger=cmd msg="Operator Version: 1.0.0"
+ts=2022-03-22T17:41:45Z level=info logger=cmd msg="Go Version: go1.16"
+ts=2022-03-22T17:41:45Z level=info logger=cmd msg="Go OS/Arch: linux/amd64"
+ts=2022-03-22T17:41:45Z level=info logger=cmd msg="Version of operator-sdk: v0.19.4"
+ts=2022-03-22T17:41:45Z level=info logger=leader msg="Trying to become the leader."
+ts=2022-03-22T17:41:45Z level=debug logger=k8sutil msg="Found namespace" Namespace=test-managed-upgrade-operator
+I0322 17:41:46.344949       1 request.go:668] Waited for 1.047677137s due to client-side throttling, not priority and fairness, request: GET:https://172.30.0.1:443/apis/discovery.k8s.io/v1beta1?timeout=32s
+ts=2022-03-22T17:41:47Z level=debug logger=k8sutil msg="Found podname" Pod.Name=managed-upgrade-operator-c4ddd5c55-hnlhw
+ts=2022-03-22T17:41:47Z level=debug logger=k8sutil msg="Found Pod" Pod.Namespace=test-managed-upgrade-operator Pod.Name=managed-upgrade-operator-c4ddd5c55-hnlhw
+ts=2022-03-22T17:41:47Z level=info logger=leader msg="No pre-existing lock was found."
+ts=2022-03-22T17:41:47Z level=info logger=leader msg="Became the leader."
+ts=2022-03-22T17:41:50Z level=info logger=controller-runtime.metrics msg="metrics server is starting to listen" addr=0.0.0.0:8383
+ts=2022-03-22T17:41:50Z level=info logger=cmd msg="Registering Components."
+ts=2022-03-22T17:41:56Z level=debug logger=k8sutil msg="Found namespace" Namespace=test-managed-upgrade-operator
+I0322 17:41:57.310162       1 request.go:668] Waited for 1.04557797s due to client-side throttling, not priority and fairness, request: GET:https://172.30.0.1:443/apis/console.openshift.io/v1?timeout=32s
+ts=2022-03-22T17:41:59Z level=debug logger=k8sutil msg="Found namespace" Namespace=test-managed-upgrade-operator
+ts=2022-03-22T17:41:59Z level=debug logger=k8sutil msg="Found podname" Pod.Name=managed-upgrade-operator-c4ddd5c55-hnlhw
+ts=2022-03-22T17:41:59Z level=debug logger=k8sutil msg="Found Pod" Pod.Namespace=test-managed-upgrade-operator Pod.Name=managed-upgrade-operator-c4ddd5c55-hnlhw
+ts=2022-03-22T17:41:59Z level=debug logger=metrics msg="Pods owner found" Kind=Deployment Name=managed-upgrade-operator Namespace=test-managed-upgrade-operator
+ts=2022-03-22T17:41:59Z level=info logger=metrics msg="Metrics Service object updated" Service.Name=managed-upgrade-operator-metrics Service.Namespace=test-managed-upgrade-operator
+ts=2022-03-22T17:41:59Z level=info logger=cmd msg="Attempting to create service monitor managed-upgrade-operator-metrics"
+ts=2022-03-22T17:41:59Z level=info logger=cmd msg="ServiceMonitor already exists"
+ts=2022-03-22T17:41:59Z level=info logger=cmd msg="Successfully configured service monitor managed-upgrade-operator-metrics"
+ts=2022-03-22T17:42:02Z level=info logger=userMetrics msg="Starting prometheus metrics"
+ts=2022-03-22T17:42:02Z level=info logger=userMetrics msg="Port: 8089"
+ts=2022-03-22T17:42:04Z level=info logger=userMetrics msg="Generated metrics service object"
+ts=2022-03-22T17:42:05Z level=info logger=userMetrics msg="Metrics Service object updated Service.Name managed-upgrade-operator-custom-metrics and Service.Namespace test-managed-upgrade-operator"
+ts=2022-03-22T17:42:05Z level=info logger=userMetrics msg="Created Service"
+ts=2022-03-22T17:42:05Z level=info logger=userMetrics msg="Generated metrics service monitor object"
+ts=2022-03-22T17:42:05Z level=info logger=userMetrics msg="Metrics Service Monitor object updated ServiceMonitor.Name managed-upgrade-operator-custom-metrics and ServiceMonitor.Namespace test-managed-upgrade-operator"
+I0322 17:42:07.344109       1 request.go:668] Waited for 2.24689642s due to client-side throttling, not priority and fairness, request: GET:https://172.30.0.1:443/apis/monitoring.openshift.io/v1alpha1?timeout=32s
+ts=2022-03-22T17:42:07Z level=info logger=cmd msg="Starting UpgradeConfig manager"
+ts=2022-03-22T17:42:07Z level=info msg="starting metrics server" path=/metrics
+ts=2022-03-22T17:42:07Z level=info logger=controller.machineconfigpool-controller msg="Starting EventSource" source="kind source: /, Kind="
+ts=2022-03-22T17:42:07Z level=info logger=controller.machineconfigpool-controller msg="Starting Controller"
+ts=2022-03-22T17:42:07Z level=info logger=controller.nodekeeper-controller msg="Starting EventSource" source="kind source: /, Kind="
+ts=2022-03-22T17:42:07Z level=info logger=controller.nodekeeper-controller msg="Starting Controller"
+ts=2022-03-22T17:42:07Z level=info logger=controller.upgradeconfig-controller msg="Starting EventSource" source="kind source: /, Kind="
+ts=2022-03-22T17:42:07Z level=info logger=controller.upgradeconfig-controller msg="Starting Controller"
+ts=2022-03-22T17:42:08Z level=info logger=controller.upgradeconfig-controller msg="Starting workers" workercount=1
+ts=2022-03-22T17:42:08Z level=info logger=controller_upgradeconfig msg="Reconciling UpgradeConfig" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:42:08Z level=info logger=controller.nodekeeper-controller msg="Starting workers" workercount=1
+ts=2022-03-22T17:42:08Z level=info logger=controller.machineconfigpool-controller msg="Starting workers" workercount=1
+ts=2022-03-22T17:42:08Z level=info logger=controller_machineconfigpool msg="Reconciling MachineConfigPool" Request.Namespace= Request.Name=worker
+ts=2022-03-22T17:42:08Z level=info logger=upgrade-config-manager msg="Starting the upgradeConfigManager"
+ts=2022-03-22T17:42:09Z level=info logger=upgrade-config-manager msg="No UpgradeConfig manager configuration defined, will not sync"
+ts=2022-03-22T17:42:09Z level=error logger=upgrade-config-manager msg="can't read upgradeConfigManager configuration" error="no configManager defined in configuration"
+ts=2022-03-22T17:42:09Z level=info logger=controller_upgradeconfig msg="Current cluster status" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config status=Upgrading
+ts=2022-03-22T17:42:09Z level=info logger=controller_upgradeconfig msg="Cluster detected as already upgrading." Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:42:09Z level=info logger=KubeAPIWarningLogger msg="policy/v1beta1 PodDisruptionBudget is deprecated in v1.21+, unavailable in v1.25+; use policy/v1 PodDisruptionBudget"
+ts=2022-03-22T17:42:10Z level=info logger=clusterversion msg="ClusterVersion is already set to Channel stable-4.9 Version 4.9.21"
+ts=2022-03-22T17:42:10Z level=info logger=controller_upgradeconfig msg="running step StartedNotificationSent" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:42:10Z level=info logger=clusterversion msg="ClusterVersion is already set to Channel stable-4.9 Version 4.9.21"
+ts=2022-03-22T17:42:10Z level=info logger=controller_upgradeconfig msg="running step StartedNotificationSent" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:42:10Z level=info logger=clusterversion msg="ClusterVersion is already set to Channel stable-4.9 Version 4.9.21"
+ts=2022-03-22T17:42:10Z level=info logger=controller_upgradeconfig msg="running step IsClusterUpgradable" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:42:10Z level=info logger=clusterversion msg="ClusterVersion is already set to Channel stable-4.9 Version 4.9.21"
+ts=2022-03-22T17:42:10Z level=info logger=controller_upgradeconfig msg="Skipping upgrade step IsClusterUpgradable" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:42:10Z level=info logger=controller_upgradeconfig msg="running step ClusterHealthyBeforeUpgrade" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:42:10Z level=info logger=clusterversion msg="ClusterVersion is already set to Channel stable-4.9 Version 4.9.21"
+ts=2022-03-22T17:42:10Z level=info logger=controller_upgradeconfig msg="Skipping upgrade step ClusterHealthyBeforeUpgrade" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:42:10Z level=info logger=controller_upgradeconfig msg="running step ExternalDependenciesAvailable" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:42:10Z level=info logger=clusterversion msg="ClusterVersion is already set to Channel stable-4.9 Version 4.9.21"
+ts=2022-03-22T17:42:10Z level=info logger=controller_upgradeconfig msg="Skipping upgrade step ExternalDependenciesAvailable" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:42:10Z level=info logger=controller_upgradeconfig msg="running step ComputeCapacityReserved" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:42:10Z level=info logger=controller_upgradeconfig msg="Do not need to scale up extra node(s) since the capacity reservation is disabled" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:42:10Z level=info logger=controller_upgradeconfig msg="running step ControlPlaneMaintenanceWindowCreated" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:42:10Z level=info logger=controller_upgradeconfig msg="running step UpgradeCommenced" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:42:10Z level=info logger=clusterversion msg="ClusterVersion is already set to Channel stable-4.9 Version 4.9.21"
+ts=2022-03-22T17:42:10Z level=info logger=controller_upgradeconfig msg="Skipping upgrade step UpgradeCommenced" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:42:10Z level=info logger=controller_upgradeconfig msg="running step ControlPlaneUpgraded" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:42:10Z level=info logger=controller_upgradeconfig msg="ControlPlaneUpgraded not done, skip following steps" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:43:09Z level=info logger=upgrade-config-manager msg="No UpgradeConfig manager configuration defined, will not sync"
+ts=2022-03-22T17:43:09Z level=error logger=upgrade-config-manager msg="can't read upgradeConfigManager configuration" error="no configManager defined in configuration"
+ts=2022-03-22T17:43:10Z level=info logger=controller_upgradeconfig msg="Reconciling UpgradeConfig" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:43:10Z level=info logger=controller_upgradeconfig msg="Current cluster status" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config status=Upgrading
+ts=2022-03-22T17:43:10Z level=info logger=controller_upgradeconfig msg="Cluster detected as already upgrading." Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:43:11Z level=info logger=clusterversion msg="ClusterVersion is already set to Channel stable-4.9 Version 4.9.21"
+ts=2022-03-22T17:43:11Z level=info logger=controller_upgradeconfig msg="running step StartedNotificationSent" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:43:11Z level=info logger=clusterversion msg="ClusterVersion is already set to Channel stable-4.9 Version 4.9.21"
+ts=2022-03-22T17:43:11Z level=info logger=controller_upgradeconfig msg="running step StartedNotificationSent" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:43:11Z level=info logger=clusterversion msg="ClusterVersion is already set to Channel stable-4.9 Version 4.9.21"
+ts=2022-03-22T17:43:11Z level=info logger=controller_upgradeconfig msg="running step IsClusterUpgradable" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:43:11Z level=info logger=clusterversion msg="ClusterVersion is already set to Channel stable-4.9 Version 4.9.21"
+ts=2022-03-22T17:43:11Z level=info logger=controller_upgradeconfig msg="Skipping upgrade step IsClusterUpgradable" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:43:11Z level=info logger=controller_upgradeconfig msg="running step ClusterHealthyBeforeUpgrade" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:43:11Z level=info logger=clusterversion msg="ClusterVersion is already set to Channel stable-4.9 Version 4.9.21"
+ts=2022-03-22T17:43:11Z level=info logger=controller_upgradeconfig msg="Skipping upgrade step ClusterHealthyBeforeUpgrade" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:43:11Z level=info logger=controller_upgradeconfig msg="running step ExternalDependenciesAvailable" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:43:11Z level=info logger=clusterversion msg="ClusterVersion is already set to Channel stable-4.9 Version 4.9.21"
+ts=2022-03-22T17:43:11Z level=info logger=controller_upgradeconfig msg="Skipping upgrade step ExternalDependenciesAvailable" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:43:11Z level=info logger=controller_upgradeconfig msg="running step ComputeCapacityReserved" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:43:11Z level=info logger=controller_upgradeconfig msg="Do not need to scale up extra node(s) since the capacity reservation is disabled" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:43:11Z level=info logger=controller_upgradeconfig msg="running step ControlPlaneMaintenanceWindowCreated" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:43:11Z level=info logger=controller_upgradeconfig msg="running step UpgradeCommenced" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:43:11Z level=info logger=clusterversion msg="ClusterVersion is already set to Channel stable-4.9 Version 4.9.21"
+ts=2022-03-22T17:43:11Z level=info logger=controller_upgradeconfig msg="Skipping upgrade step UpgradeCommenced" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:43:11Z level=info logger=controller_upgradeconfig msg="running step ControlPlaneUpgraded" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:43:11Z level=info logger=controller_upgradeconfig msg="ControlPlaneUpgraded not done, skip following steps" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:43:42Z level=info logger=controller_machineconfigpool msg="Reconciling MachineConfigPool" Request.Namespace= Request.Name=worker
+ts=2022-03-22T17:44:09Z level=info logger=upgrade-config-manager msg="No UpgradeConfig manager configuration defined, will not sync"
+ts=2022-03-22T17:44:09Z level=error logger=upgrade-config-manager msg="can't read upgradeConfigManager configuration" error="no configManager defined in configuration"
+ts=2022-03-22T17:44:12Z level=info logger=controller_upgradeconfig msg="Reconciling UpgradeConfig" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:44:12Z level=info logger=controller_upgradeconfig msg="Current cluster status" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config status=Upgrading
+ts=2022-03-22T17:44:12Z level=info logger=controller_upgradeconfig msg="Cluster detected as already upgrading." Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:44:12Z level=info logger=clusterversion msg="ClusterVersion is already set to Channel stable-4.9 Version 4.9.21"
+ts=2022-03-22T17:44:12Z level=info logger=controller_upgradeconfig msg="running step StartedNotificationSent" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:44:12Z level=info logger=clusterversion msg="ClusterVersion is already set to Channel stable-4.9 Version 4.9.21"
+ts=2022-03-22T17:44:12Z level=info logger=controller_upgradeconfig msg="running step StartedNotificationSent" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:44:12Z level=info logger=clusterversion msg="ClusterVersion is already set to Channel stable-4.9 Version 4.9.21"
+ts=2022-03-22T17:44:12Z level=info logger=controller_upgradeconfig msg="running step IsClusterUpgradable" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:44:12Z level=info logger=clusterversion msg="ClusterVersion is already set to Channel stable-4.9 Version 4.9.21"
+ts=2022-03-22T17:44:12Z level=info logger=controller_upgradeconfig msg="Skipping upgrade step IsClusterUpgradable" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:44:12Z level=info logger=controller_upgradeconfig msg="running step ClusterHealthyBeforeUpgrade" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:44:12Z level=info logger=clusterversion msg="ClusterVersion is already set to Channel stable-4.9 Version 4.9.21"
+ts=2022-03-22T17:44:12Z level=info logger=controller_upgradeconfig msg="Skipping upgrade step ClusterHealthyBeforeUpgrade" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:44:12Z level=info logger=controller_upgradeconfig msg="running step ExternalDependenciesAvailable" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:44:12Z level=info logger=clusterversion msg="ClusterVersion is already set to Channel stable-4.9 Version 4.9.21"
+ts=2022-03-22T17:44:12Z level=info logger=controller_upgradeconfig msg="Skipping upgrade step ExternalDependenciesAvailable" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:44:12Z level=info logger=controller_upgradeconfig msg="running step ComputeCapacityReserved" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:44:12Z level=info logger=controller_upgradeconfig msg="Do not need to scale up extra node(s) since the capacity reservation is disabled" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:44:12Z level=info logger=controller_upgradeconfig msg="running step ControlPlaneMaintenanceWindowCreated" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:44:12Z level=info logger=controller_upgradeconfig msg="running step UpgradeCommenced" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:44:12Z level=info logger=clusterversion msg="ClusterVersion is already set to Channel stable-4.9 Version 4.9.21"
+ts=2022-03-22T17:44:12Z level=info logger=controller_upgradeconfig msg="Skipping upgrade step UpgradeCommenced" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:44:12Z level=info logger=controller_upgradeconfig msg="running step ControlPlaneUpgraded" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:44:12Z level=info logger=controller_upgradeconfig msg="ControlPlaneUpgraded not done, skip following steps" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:45:09Z level=info logger=upgrade-config-manager msg="No UpgradeConfig manager configuration defined, will not sync"
+ts=2022-03-22T17:45:09Z level=error logger=upgrade-config-manager msg="can't read upgradeConfigManager configuration" error="no configManager defined in configuration"
+ts=2022-03-22T17:45:12Z level=info logger=controller_upgradeconfig msg="Reconciling UpgradeConfig" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:45:12Z level=info logger=controller_upgradeconfig msg="Current cluster status" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config status=Upgrading
+ts=2022-03-22T17:45:12Z level=info logger=controller_upgradeconfig msg="Cluster detected as already upgrading." Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:45:13Z level=info logger=clusterversion msg="ClusterVersion is already set to Channel stable-4.9 Version 4.9.21"
+ts=2022-03-22T17:45:13Z level=info logger=controller_upgradeconfig msg="running step StartedNotificationSent" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:45:13Z level=info logger=clusterversion msg="ClusterVersion is already set to Channel stable-4.9 Version 4.9.21"
+ts=2022-03-22T17:45:13Z level=info logger=controller_upgradeconfig msg="running step StartedNotificationSent" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:45:13Z level=info logger=clusterversion msg="ClusterVersion is already set to Channel stable-4.9 Version 4.9.21"
+ts=2022-03-22T17:45:13Z level=info logger=controller_upgradeconfig msg="running step IsClusterUpgradable" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:45:13Z level=info logger=clusterversion msg="ClusterVersion is already set to Channel stable-4.9 Version 4.9.21"
+ts=2022-03-22T17:45:13Z level=info logger=controller_upgradeconfig msg="Skipping upgrade step IsClusterUpgradable" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:45:13Z level=info logger=controller_upgradeconfig msg="running step ClusterHealthyBeforeUpgrade" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:45:13Z level=info logger=clusterversion msg="ClusterVersion is already set to Channel stable-4.9 Version 4.9.21"
+ts=2022-03-22T17:45:13Z level=info logger=controller_upgradeconfig msg="Skipping upgrade step ClusterHealthyBeforeUpgrade" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:45:13Z level=info logger=controller_upgradeconfig msg="running step ExternalDependenciesAvailable" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:45:13Z level=info logger=clusterversion msg="ClusterVersion is already set to Channel stable-4.9 Version 4.9.21"
+ts=2022-03-22T17:45:13Z level=info logger=controller_upgradeconfig msg="Skipping upgrade step ExternalDependenciesAvailable" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:45:13Z level=info logger=controller_upgradeconfig msg="running step ComputeCapacityReserved" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:45:13Z level=info logger=controller_upgradeconfig msg="Do not need to scale up extra node(s) since the capacity reservation is disabled" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:45:13Z level=info logger=controller_upgradeconfig msg="running step ControlPlaneMaintenanceWindowCreated" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:45:13Z level=info logger=controller_upgradeconfig msg="running step UpgradeCommenced" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:45:13Z level=info logger=clusterversion msg="ClusterVersion is already set to Channel stable-4.9 Version 4.9.21"
+ts=2022-03-22T17:45:13Z level=info logger=controller_upgradeconfig msg="Skipping upgrade step UpgradeCommenced" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:45:13Z level=info logger=controller_upgradeconfig msg="running step ControlPlaneUpgraded" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:45:13Z level=info logger=controller_upgradeconfig msg="ControlPlaneUpgraded not done, skip following steps" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:45:50Z level=info logger=controller_machineconfigpool msg="Reconciling MachineConfigPool" Request.Namespace= Request.Name=worker
+ts=2022-03-22T17:46:09Z level=info logger=upgrade-config-manager msg="No UpgradeConfig manager configuration defined, will not sync"
+ts=2022-03-22T17:46:09Z level=error logger=upgrade-config-manager msg="can't read upgradeConfigManager configuration" error="no configManager defined in configuration"
+ts=2022-03-22T17:46:13Z level=info logger=controller_upgradeconfig msg="Reconciling UpgradeConfig" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:46:13Z level=info logger=controller_upgradeconfig msg="Current cluster status" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config status=Upgrading
+ts=2022-03-22T17:46:13Z level=info logger=controller_upgradeconfig msg="Cluster detected as already upgrading." Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:46:14Z level=info logger=clusterversion msg="ClusterVersion is already set to Channel stable-4.9 Version 4.9.21"
+ts=2022-03-22T17:46:14Z level=info logger=controller_upgradeconfig msg="running step StartedNotificationSent" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:46:14Z level=info logger=clusterversion msg="ClusterVersion is already set to Channel stable-4.9 Version 4.9.21"
+ts=2022-03-22T17:46:14Z level=info logger=controller_upgradeconfig msg="running step StartedNotificationSent" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:46:14Z level=info logger=clusterversion msg="ClusterVersion is already set to Channel stable-4.9 Version 4.9.21"
+ts=2022-03-22T17:46:14Z level=info logger=controller_upgradeconfig msg="running step IsClusterUpgradable" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:46:14Z level=info logger=clusterversion msg="ClusterVersion is already set to Channel stable-4.9 Version 4.9.21"
+ts=2022-03-22T17:46:14Z level=info logger=controller_upgradeconfig msg="Skipping upgrade step IsClusterUpgradable" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:46:14Z level=info logger=controller_upgradeconfig msg="running step ClusterHealthyBeforeUpgrade" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:46:14Z level=info logger=clusterversion msg="ClusterVersion is already set to Channel stable-4.9 Version 4.9.21"
+ts=2022-03-22T17:46:14Z level=info logger=controller_upgradeconfig msg="Skipping upgrade step ClusterHealthyBeforeUpgrade" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:46:14Z level=info logger=controller_upgradeconfig msg="running step ExternalDependenciesAvailable" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:46:14Z level=info logger=clusterversion msg="ClusterVersion is already set to Channel stable-4.9 Version 4.9.21"
+ts=2022-03-22T17:46:14Z level=info logger=controller_upgradeconfig msg="Skipping upgrade step ExternalDependenciesAvailable" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:46:14Z level=info logger=controller_upgradeconfig msg="running step ComputeCapacityReserved" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:46:14Z level=info logger=controller_upgradeconfig msg="Do not need to scale up extra node(s) since the capacity reservation is disabled" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:46:14Z level=info logger=controller_upgradeconfig msg="running step ControlPlaneMaintenanceWindowCreated" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:46:14Z level=info logger=controller_upgradeconfig msg="running step UpgradeCommenced" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:46:14Z level=info logger=clusterversion msg="ClusterVersion is already set to Channel stable-4.9 Version 4.9.21"
+ts=2022-03-22T17:46:14Z level=info logger=controller_upgradeconfig msg="Skipping upgrade step UpgradeCommenced" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:46:14Z level=info logger=controller_upgradeconfig msg="running step ControlPlaneUpgraded" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:46:14Z level=info logger=controller_upgradeconfig msg="ControlPlaneUpgraded not done, skip following steps" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:47:09Z level=info logger=upgrade-config-manager msg="No UpgradeConfig manager configuration defined, will not sync"
+ts=2022-03-22T17:47:09Z level=error logger=upgrade-config-manager msg="can't read upgradeConfigManager configuration" error="no configManager defined in configuration"
+ts=2022-03-22T17:47:14Z level=info logger=controller_upgradeconfig msg="Reconciling UpgradeConfig" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:47:14Z level=info logger=controller_upgradeconfig msg="Current cluster status" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config status=Upgrading
+ts=2022-03-22T17:47:14Z level=info logger=controller_upgradeconfig msg="Cluster detected as already upgrading." Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:47:15Z level=info logger=clusterversion msg="ClusterVersion is already set to Channel stable-4.9 Version 4.9.21"
+ts=2022-03-22T17:47:15Z level=info logger=controller_upgradeconfig msg="running step StartedNotificationSent" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:47:15Z level=info logger=clusterversion msg="ClusterVersion is already set to Channel stable-4.9 Version 4.9.21"
+ts=2022-03-22T17:47:15Z level=info logger=controller_upgradeconfig msg="running step StartedNotificationSent" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:47:15Z level=info logger=clusterversion msg="ClusterVersion is already set to Channel stable-4.9 Version 4.9.21"
+ts=2022-03-22T17:47:15Z level=info logger=controller_upgradeconfig msg="running step IsClusterUpgradable" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:47:15Z level=info logger=clusterversion msg="ClusterVersion is already set to Channel stable-4.9 Version 4.9.21"
+ts=2022-03-22T17:47:15Z level=info logger=controller_upgradeconfig msg="Skipping upgrade step IsClusterUpgradable" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:47:15Z level=info logger=controller_upgradeconfig msg="running step ClusterHealthyBeforeUpgrade" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:47:15Z level=info logger=clusterversion msg="ClusterVersion is already set to Channel stable-4.9 Version 4.9.21"
+ts=2022-03-22T17:47:15Z level=info logger=controller_upgradeconfig msg="Skipping upgrade step ClusterHealthyBeforeUpgrade" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:47:15Z level=info logger=controller_upgradeconfig msg="running step ExternalDependenciesAvailable" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:47:15Z level=info logger=clusterversion msg="ClusterVersion is already set to Channel stable-4.9 Version 4.9.21"
+ts=2022-03-22T17:47:15Z level=info logger=controller_upgradeconfig msg="Skipping upgrade step ExternalDependenciesAvailable" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:47:15Z level=info logger=controller_upgradeconfig msg="running step ComputeCapacityReserved" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:47:15Z level=info logger=controller_upgradeconfig msg="Do not need to scale up extra node(s) since the capacity reservation is disabled" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:47:15Z level=info logger=controller_upgradeconfig msg="running step ControlPlaneMaintenanceWindowCreated" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:47:15Z level=info logger=controller_upgradeconfig msg="running step UpgradeCommenced" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:47:15Z level=info logger=clusterversion msg="ClusterVersion is already set to Channel stable-4.9 Version 4.9.21"
+ts=2022-03-22T17:47:15Z level=info logger=controller_upgradeconfig msg="Skipping upgrade step UpgradeCommenced" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:47:15Z level=info logger=controller_upgradeconfig msg="running step ControlPlaneUpgraded" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:47:15Z level=info logger=controller_upgradeconfig msg="ControlPlaneUpgraded not done, skip following steps" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:48:09Z level=info logger=upgrade-config-manager msg="No UpgradeConfig manager configuration defined, will not sync"
+ts=2022-03-22T17:48:09Z level=error logger=upgrade-config-manager msg="can't read upgradeConfigManager configuration" error="no configManager defined in configuration"
+ts=2022-03-22T17:48:15Z level=info logger=controller_upgradeconfig msg="Reconciling UpgradeConfig" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:48:15Z level=info logger=controller_upgradeconfig msg="Current cluster status" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config status=Upgrading
+ts=2022-03-22T17:48:15Z level=info logger=controller_upgradeconfig msg="Cluster detected as already upgrading." Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:48:15Z level=info logger=clusterversion msg="ClusterVersion is already set to Channel stable-4.9 Version 4.9.21"
+ts=2022-03-22T17:48:15Z level=info logger=controller_upgradeconfig msg="running step StartedNotificationSent" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:48:15Z level=info logger=clusterversion msg="ClusterVersion is already set to Channel stable-4.9 Version 4.9.21"
+ts=2022-03-22T17:48:15Z level=info logger=controller_upgradeconfig msg="running step StartedNotificationSent" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:48:15Z level=info logger=clusterversion msg="ClusterVersion is already set to Channel stable-4.9 Version 4.9.21"
+ts=2022-03-22T17:48:15Z level=info logger=controller_upgradeconfig msg="running step IsClusterUpgradable" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:48:15Z level=info logger=clusterversion msg="ClusterVersion is already set to Channel stable-4.9 Version 4.9.21"
+ts=2022-03-22T17:48:15Z level=info logger=controller_upgradeconfig msg="Skipping upgrade step IsClusterUpgradable" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:48:15Z level=info logger=controller_upgradeconfig msg="running step ClusterHealthyBeforeUpgrade" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:48:15Z level=info logger=clusterversion msg="ClusterVersion is already set to Channel stable-4.9 Version 4.9.21"
+ts=2022-03-22T17:48:15Z level=info logger=controller_upgradeconfig msg="Skipping upgrade step ClusterHealthyBeforeUpgrade" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:48:15Z level=info logger=controller_upgradeconfig msg="running step ExternalDependenciesAvailable" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:48:15Z level=info logger=clusterversion msg="ClusterVersion is already set to Channel stable-4.9 Version 4.9.21"
+ts=2022-03-22T17:48:15Z level=info logger=controller_upgradeconfig msg="Skipping upgrade step ExternalDependenciesAvailable" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:48:15Z level=info logger=controller_upgradeconfig msg="running step ComputeCapacityReserved" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:48:15Z level=info logger=controller_upgradeconfig msg="Do not need to scale up extra node(s) since the capacity reservation is disabled" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:48:15Z level=info logger=controller_upgradeconfig msg="running step ControlPlaneMaintenanceWindowCreated" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:48:15Z level=info logger=controller_upgradeconfig msg="running step UpgradeCommenced" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:48:15Z level=info logger=clusterversion msg="ClusterVersion is already set to Channel stable-4.9 Version 4.9.21"
+ts=2022-03-22T17:48:15Z level=info logger=controller_upgradeconfig msg="Skipping upgrade step UpgradeCommenced" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:48:15Z level=info logger=controller_upgradeconfig msg="running step ControlPlaneUpgraded" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:48:16Z level=info logger=controller_upgradeconfig msg="ControlPlaneUpgraded not done, skip following steps" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:49:09Z level=info logger=upgrade-config-manager msg="No UpgradeConfig manager configuration defined, will not sync"
+ts=2022-03-22T17:49:09Z level=error logger=upgrade-config-manager msg="can't read upgradeConfigManager configuration" error="no configManager defined in configuration"
+ts=2022-03-22T17:49:16Z level=info logger=controller_upgradeconfig msg="Reconciling UpgradeConfig" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:49:16Z level=info logger=controller_upgradeconfig msg="Current cluster status" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config status=Upgrading
+ts=2022-03-22T17:49:16Z level=info logger=controller_upgradeconfig msg="Cluster detected as already upgrading." Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:49:16Z level=info logger=clusterversion msg="ClusterVersion is already set to Channel stable-4.9 Version 4.9.21"
+ts=2022-03-22T17:49:16Z level=info logger=controller_upgradeconfig msg="running step StartedNotificationSent" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:49:16Z level=info logger=clusterversion msg="ClusterVersion is already set to Channel stable-4.9 Version 4.9.21"
+ts=2022-03-22T17:49:16Z level=info logger=controller_upgradeconfig msg="running step StartedNotificationSent" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:49:16Z level=info logger=clusterversion msg="ClusterVersion is already set to Channel stable-4.9 Version 4.9.21"
+ts=2022-03-22T17:49:16Z level=info logger=controller_upgradeconfig msg="running step IsClusterUpgradable" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:49:16Z level=info logger=clusterversion msg="ClusterVersion is already set to Channel stable-4.9 Version 4.9.21"
+ts=2022-03-22T17:49:16Z level=info logger=controller_upgradeconfig msg="Skipping upgrade step IsClusterUpgradable" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:49:16Z level=info logger=controller_upgradeconfig msg="running step ClusterHealthyBeforeUpgrade" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:49:16Z level=info logger=clusterversion msg="ClusterVersion is already set to Channel stable-4.9 Version 4.9.21"
+ts=2022-03-22T17:49:16Z level=info logger=controller_upgradeconfig msg="Skipping upgrade step ClusterHealthyBeforeUpgrade" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:49:16Z level=info logger=controller_upgradeconfig msg="running step ExternalDependenciesAvailable" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:49:16Z level=info logger=clusterversion msg="ClusterVersion is already set to Channel stable-4.9 Version 4.9.21"
+ts=2022-03-22T17:49:16Z level=info logger=controller_upgradeconfig msg="Skipping upgrade step ExternalDependenciesAvailable" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:49:16Z level=info logger=controller_upgradeconfig msg="running step ComputeCapacityReserved" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:49:16Z level=info logger=controller_upgradeconfig msg="Do not need to scale up extra node(s) since the capacity reservation is disabled" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:49:16Z level=info logger=controller_upgradeconfig msg="running step ControlPlaneMaintenanceWindowCreated" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:49:16Z level=info logger=controller_upgradeconfig msg="running step UpgradeCommenced" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:49:16Z level=info logger=clusterversion msg="ClusterVersion is already set to Channel stable-4.9 Version 4.9.21"
+ts=2022-03-22T17:49:16Z level=info logger=controller_upgradeconfig msg="Skipping upgrade step UpgradeCommenced" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:49:16Z level=info logger=controller_upgradeconfig msg="running step ControlPlaneUpgraded" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:49:16Z level=info logger=controller_upgradeconfig msg="ControlPlaneUpgraded not done, skip following steps" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:49:59Z level=info logger=controller_machineconfigpool msg="Reconciling MachineConfigPool" Request.Namespace= Request.Name=worker
+ts=2022-03-22T17:50:09Z level=info logger=upgrade-config-manager msg="No UpgradeConfig manager configuration defined, will not sync"
+ts=2022-03-22T17:50:09Z level=error logger=upgrade-config-manager msg="can't read upgradeConfigManager configuration" error="no configManager defined in configuration"
+ts=2022-03-22T17:50:16Z level=info logger=controller_upgradeconfig msg="Reconciling UpgradeConfig" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:50:16Z level=info logger=controller_upgradeconfig msg="Current cluster status" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config status=Upgrading
+ts=2022-03-22T17:50:16Z level=info logger=controller_upgradeconfig msg="Cluster detected as already upgrading." Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:50:17Z level=info logger=clusterversion msg="ClusterVersion is already set to Channel stable-4.9 Version 4.9.21"
+ts=2022-03-22T17:50:17Z level=info logger=controller_upgradeconfig msg="running step StartedNotificationSent" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:50:17Z level=info logger=clusterversion msg="ClusterVersion is already set to Channel stable-4.9 Version 4.9.21"
+ts=2022-03-22T17:50:17Z level=info logger=controller_upgradeconfig msg="running step StartedNotificationSent" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:50:17Z level=info logger=clusterversion msg="ClusterVersion is already set to Channel stable-4.9 Version 4.9.21"
+ts=2022-03-22T17:50:17Z level=info logger=controller_upgradeconfig msg="running step IsClusterUpgradable" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:50:17Z level=info logger=clusterversion msg="ClusterVersion is already set to Channel stable-4.9 Version 4.9.21"
+ts=2022-03-22T17:50:17Z level=info logger=controller_upgradeconfig msg="Skipping upgrade step IsClusterUpgradable" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:50:17Z level=info logger=controller_upgradeconfig msg="running step ClusterHealthyBeforeUpgrade" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:50:17Z level=info logger=clusterversion msg="ClusterVersion is already set to Channel stable-4.9 Version 4.9.21"
+ts=2022-03-22T17:50:17Z level=info logger=controller_upgradeconfig msg="Skipping upgrade step ClusterHealthyBeforeUpgrade" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:50:17Z level=info logger=controller_upgradeconfig msg="running step ExternalDependenciesAvailable" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:50:17Z level=info logger=clusterversion msg="ClusterVersion is already set to Channel stable-4.9 Version 4.9.21"
+ts=2022-03-22T17:50:17Z level=info logger=controller_upgradeconfig msg="Skipping upgrade step ExternalDependenciesAvailable" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:50:17Z level=info logger=controller_upgradeconfig msg="running step ComputeCapacityReserved" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:50:17Z level=info logger=controller_upgradeconfig msg="Do not need to scale up extra node(s) since the capacity reservation is disabled" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:50:17Z level=info logger=controller_upgradeconfig msg="running step ControlPlaneMaintenanceWindowCreated" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:50:17Z level=info logger=controller_upgradeconfig msg="running step UpgradeCommenced" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:50:17Z level=info logger=clusterversion msg="ClusterVersion is already set to Channel stable-4.9 Version 4.9.21"
+ts=2022-03-22T17:50:17Z level=info logger=controller_upgradeconfig msg="Skipping upgrade step UpgradeCommenced" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:50:17Z level=info logger=controller_upgradeconfig msg="running step ControlPlaneUpgraded" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:50:17Z level=info logger=controller_upgradeconfig msg="ControlPlaneUpgraded not done, skip following steps" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:51:09Z level=info logger=upgrade-config-manager msg="No UpgradeConfig manager configuration defined, will not sync"
+ts=2022-03-22T17:51:09Z level=error logger=upgrade-config-manager msg="can't read upgradeConfigManager configuration" error="no configManager defined in configuration"
+ts=2022-03-22T17:51:17Z level=info logger=controller_upgradeconfig msg="Reconciling UpgradeConfig" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:51:17Z level=info logger=controller_upgradeconfig msg="Current cluster status" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config status=Upgrading
+ts=2022-03-22T17:51:17Z level=info logger=controller_upgradeconfig msg="Cluster detected as already upgrading." Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:51:17Z level=info logger=clusterversion msg="ClusterVersion is already set to Channel stable-4.9 Version 4.9.21"
+ts=2022-03-22T17:51:17Z level=info logger=controller_upgradeconfig msg="running step StartedNotificationSent" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:51:17Z level=info logger=clusterversion msg="ClusterVersion is already set to Channel stable-4.9 Version 4.9.21"
+ts=2022-03-22T17:51:17Z level=info logger=controller_upgradeconfig msg="running step StartedNotificationSent" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:51:17Z level=info logger=clusterversion msg="ClusterVersion is already set to Channel stable-4.9 Version 4.9.21"
+ts=2022-03-22T17:51:17Z level=info logger=controller_upgradeconfig msg="running step IsClusterUpgradable" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:51:18Z level=info logger=clusterversion msg="ClusterVersion is already set to Channel stable-4.9 Version 4.9.21"
+ts=2022-03-22T17:51:18Z level=info logger=controller_upgradeconfig msg="Skipping upgrade step IsClusterUpgradable" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:51:18Z level=info logger=controller_upgradeconfig msg="running step ClusterHealthyBeforeUpgrade" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:51:18Z level=info logger=clusterversion msg="ClusterVersion is already set to Channel stable-4.9 Version 4.9.21"
+ts=2022-03-22T17:51:18Z level=info logger=controller_upgradeconfig msg="Skipping upgrade step ClusterHealthyBeforeUpgrade" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:51:18Z level=info logger=controller_upgradeconfig msg="running step ExternalDependenciesAvailable" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:51:18Z level=info logger=clusterversion msg="ClusterVersion is already set to Channel stable-4.9 Version 4.9.21"
+ts=2022-03-22T17:51:18Z level=info logger=controller_upgradeconfig msg="Skipping upgrade step ExternalDependenciesAvailable" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:51:18Z level=info logger=controller_upgradeconfig msg="running step ComputeCapacityReserved" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:51:18Z level=info logger=controller_upgradeconfig msg="Do not need to scale up extra node(s) since the capacity reservation is disabled" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:51:18Z level=info logger=controller_upgradeconfig msg="running step ControlPlaneMaintenanceWindowCreated" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:51:18Z level=info logger=controller_upgradeconfig msg="running step UpgradeCommenced" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:51:18Z level=info logger=clusterversion msg="ClusterVersion is already set to Channel stable-4.9 Version 4.9.21"
+ts=2022-03-22T17:51:18Z level=info logger=controller_upgradeconfig msg="Skipping upgrade step UpgradeCommenced" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:51:18Z level=info logger=controller_upgradeconfig msg="running step ControlPlaneUpgraded" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:51:18Z level=info logger=controller_upgradeconfig msg="ControlPlaneUpgraded not done, skip following steps" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:51:57Z level=info logger=controller_machineconfigpool msg="Reconciling MachineConfigPool" Request.Namespace= Request.Name=worker
+ts=2022-03-22T17:52:09Z level=info logger=upgrade-config-manager msg="No UpgradeConfig manager configuration defined, will not sync"
+ts=2022-03-22T17:52:09Z level=error logger=upgrade-config-manager msg="can't read upgradeConfigManager configuration" error="no configManager defined in configuration"
+ts=2022-03-22T17:52:18Z level=info logger=controller_upgradeconfig msg="Reconciling UpgradeConfig" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:52:18Z level=info logger=controller_upgradeconfig msg="Current cluster status" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config status=Upgrading
+ts=2022-03-22T17:52:18Z level=info logger=controller_upgradeconfig msg="Cluster detected as already upgrading." Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:52:18Z level=info logger=clusterversion msg="ClusterVersion is already set to Channel stable-4.9 Version 4.9.21"
+ts=2022-03-22T17:52:18Z level=info logger=controller_upgradeconfig msg="running step StartedNotificationSent" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:52:18Z level=info logger=clusterversion msg="ClusterVersion is already set to Channel stable-4.9 Version 4.9.21"
+ts=2022-03-22T17:52:18Z level=info logger=controller_upgradeconfig msg="running step StartedNotificationSent" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:52:18Z level=info logger=clusterversion msg="ClusterVersion is already set to Channel stable-4.9 Version 4.9.21"
+ts=2022-03-22T17:52:18Z level=info logger=controller_upgradeconfig msg="running step IsClusterUpgradable" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:52:18Z level=info logger=clusterversion msg="ClusterVersion is already set to Channel stable-4.9 Version 4.9.21"
+ts=2022-03-22T17:52:18Z level=info logger=controller_upgradeconfig msg="Skipping upgrade step IsClusterUpgradable" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:52:18Z level=info logger=controller_upgradeconfig msg="running step ClusterHealthyBeforeUpgrade" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:52:18Z level=info logger=clusterversion msg="ClusterVersion is already set to Channel stable-4.9 Version 4.9.21"
+ts=2022-03-22T17:52:18Z level=info logger=controller_upgradeconfig msg="Skipping upgrade step ClusterHealthyBeforeUpgrade" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:52:18Z level=info logger=controller_upgradeconfig msg="running step ExternalDependenciesAvailable" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:52:18Z level=info logger=clusterversion msg="ClusterVersion is already set to Channel stable-4.9 Version 4.9.21"
+ts=2022-03-22T17:52:18Z level=info logger=controller_upgradeconfig msg="Skipping upgrade step ExternalDependenciesAvailable" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:52:18Z level=info logger=controller_upgradeconfig msg="running step ComputeCapacityReserved" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:52:18Z level=info logger=controller_upgradeconfig msg="Do not need to scale up extra node(s) since the capacity reservation is disabled" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:52:18Z level=info logger=controller_upgradeconfig msg="running step ControlPlaneMaintenanceWindowCreated" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:52:18Z level=info logger=controller_upgradeconfig msg="running step UpgradeCommenced" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:52:18Z level=info logger=clusterversion msg="ClusterVersion is already set to Channel stable-4.9 Version 4.9.21"
+ts=2022-03-22T17:52:18Z level=info logger=controller_upgradeconfig msg="Skipping upgrade step UpgradeCommenced" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:52:18Z level=info logger=controller_upgradeconfig msg="running step ControlPlaneUpgraded" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:52:18Z level=info logger=controller_upgradeconfig msg="ControlPlaneUpgraded not done, skip following steps" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:52:44Z level=info logger=controller_upgradeconfig msg="Reconciling UpgradeConfig" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:52:44Z level=info logger=controller_upgradeconfig msg="Current cluster status" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config status=Upgrading
+ts=2022-03-22T17:52:44Z level=info logger=controller_upgradeconfig msg="Cluster detected as already upgrading." Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:52:44Z level=info logger=clusterversion msg="ClusterVersion is already set to Channel stable-4.9 Version 4.9.21"
+ts=2022-03-22T17:52:44Z level=info logger=controller_upgradeconfig msg="running step StartedNotificationSent" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:52:44Z level=info logger=clusterversion msg="ClusterVersion is already set to Channel stable-4.9 Version 4.9.21"
+ts=2022-03-22T17:52:44Z level=info logger=controller_upgradeconfig msg="running step StartedNotificationSent" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:52:44Z level=info logger=clusterversion msg="ClusterVersion is already set to Channel stable-4.9 Version 4.9.21"
+ts=2022-03-22T17:52:44Z level=info logger=controller_upgradeconfig msg="running step IsClusterUpgradable" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:52:44Z level=info logger=clusterversion msg="ClusterVersion is already set to Channel stable-4.9 Version 4.9.21"
+ts=2022-03-22T17:52:44Z level=info logger=controller_upgradeconfig msg="Skipping upgrade step IsClusterUpgradable" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:52:44Z level=info logger=controller_upgradeconfig msg="running step ClusterHealthyBeforeUpgrade" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:52:44Z level=info logger=clusterversion msg="ClusterVersion is already set to Channel stable-4.9 Version 4.9.21"
+ts=2022-03-22T17:52:44Z level=info logger=controller_upgradeconfig msg="Skipping upgrade step ClusterHealthyBeforeUpgrade" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:52:44Z level=info logger=controller_upgradeconfig msg="running step ExternalDependenciesAvailable" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:52:44Z level=info logger=clusterversion msg="ClusterVersion is already set to Channel stable-4.9 Version 4.9.21"
+ts=2022-03-22T17:52:44Z level=info logger=controller_upgradeconfig msg="Skipping upgrade step ExternalDependenciesAvailable" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:52:44Z level=info logger=controller_upgradeconfig msg="running step ComputeCapacityReserved" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:52:44Z level=info logger=controller_upgradeconfig msg="Do not need to scale up extra node(s) since the capacity reservation is disabled" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:52:44Z level=info logger=controller_upgradeconfig msg="running step ControlPlaneMaintenanceWindowCreated" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:52:44Z level=info logger=controller_upgradeconfig msg="running step UpgradeCommenced" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:52:44Z level=info logger=clusterversion msg="ClusterVersion is already set to Channel stable-4.9 Version 4.9.21"
+ts=2022-03-22T17:52:44Z level=info logger=controller_upgradeconfig msg="Skipping upgrade step UpgradeCommenced" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:52:44Z level=info logger=controller_upgradeconfig msg="running step ControlPlaneUpgraded" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:52:44Z level=info logger=controller_upgradeconfig msg="ControlPlaneUpgraded not done, skip following steps" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:53:09Z level=info logger=upgrade-config-manager msg="No UpgradeConfig manager configuration defined, will not sync"
+ts=2022-03-22T17:53:09Z level=error logger=upgrade-config-manager msg="can't read upgradeConfigManager configuration" error="no configManager defined in configuration"
+ts=2022-03-22T17:53:18Z level=info logger=controller_upgradeconfig msg="Reconciling UpgradeConfig" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:53:18Z level=info logger=controller_upgradeconfig msg="Current cluster status" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config status=Upgrading
+ts=2022-03-22T17:53:18Z level=info logger=controller_upgradeconfig msg="Cluster detected as already upgrading." Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:53:19Z level=info logger=clusterversion msg="ClusterVersion is already set to Channel stable-4.9 Version 4.9.21"
+ts=2022-03-22T17:53:19Z level=info logger=controller_upgradeconfig msg="running step StartedNotificationSent" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:53:19Z level=info logger=clusterversion msg="ClusterVersion is already set to Channel stable-4.9 Version 4.9.21"
+ts=2022-03-22T17:53:19Z level=info logger=controller_upgradeconfig msg="running step StartedNotificationSent" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:53:19Z level=info logger=clusterversion msg="ClusterVersion is already set to Channel stable-4.9 Version 4.9.21"
+ts=2022-03-22T17:53:19Z level=info logger=controller_upgradeconfig msg="running step IsClusterUpgradable" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:53:19Z level=info logger=clusterversion msg="ClusterVersion is already set to Channel stable-4.9 Version 4.9.21"
+ts=2022-03-22T17:53:19Z level=info logger=controller_upgradeconfig msg="Skipping upgrade step IsClusterUpgradable" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:53:19Z level=info logger=controller_upgradeconfig msg="running step ClusterHealthyBeforeUpgrade" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:53:19Z level=info logger=clusterversion msg="ClusterVersion is already set to Channel stable-4.9 Version 4.9.21"
+ts=2022-03-22T17:53:19Z level=info logger=controller_upgradeconfig msg="Skipping upgrade step ClusterHealthyBeforeUpgrade" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:53:19Z level=info logger=controller_upgradeconfig msg="running step ExternalDependenciesAvailable" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:53:19Z level=info logger=clusterversion msg="ClusterVersion is already set to Channel stable-4.9 Version 4.9.21"
+ts=2022-03-22T17:53:19Z level=info logger=controller_upgradeconfig msg="Skipping upgrade step ExternalDependenciesAvailable" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:53:19Z level=info logger=controller_upgradeconfig msg="running step ComputeCapacityReserved" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:53:19Z level=info logger=controller_upgradeconfig msg="Do not need to scale up extra node(s) since the capacity reservation is disabled" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:53:19Z level=info logger=controller_upgradeconfig msg="running step ControlPlaneMaintenanceWindowCreated" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:53:19Z level=info logger=controller_upgradeconfig msg="running step UpgradeCommenced" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:53:19Z level=info logger=clusterversion msg="ClusterVersion is already set to Channel stable-4.9 Version 4.9.21"
+ts=2022-03-22T17:53:19Z level=info logger=controller_upgradeconfig msg="Skipping upgrade step UpgradeCommenced" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:53:19Z level=info logger=controller_upgradeconfig msg="running step ControlPlaneUpgraded" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:53:19Z level=info logger=controller_upgradeconfig msg="ControlPlaneUpgraded not done, skip following steps" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:54:09Z level=info logger=upgrade-config-manager msg="No UpgradeConfig manager configuration defined, will not sync"
+ts=2022-03-22T17:54:09Z level=error logger=upgrade-config-manager msg="can't read upgradeConfigManager configuration" error="no configManager defined in configuration"
+ts=2022-03-22T17:54:19Z level=info logger=controller_upgradeconfig msg="Reconciling UpgradeConfig" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:54:19Z level=info logger=controller_upgradeconfig msg="Current cluster status" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config status=Upgrading
+ts=2022-03-22T17:54:19Z level=info logger=controller_upgradeconfig msg="Cluster detected as already upgrading." Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:54:20Z level=info logger=clusterversion msg="ClusterVersion is already set to Channel stable-4.9 Version 4.9.21"
+ts=2022-03-22T17:54:20Z level=info logger=controller_upgradeconfig msg="running step StartedNotificationSent" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:54:20Z level=info logger=clusterversion msg="ClusterVersion is already set to Channel stable-4.9 Version 4.9.21"
+ts=2022-03-22T17:54:20Z level=info logger=controller_upgradeconfig msg="running step StartedNotificationSent" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:54:20Z level=info logger=clusterversion msg="ClusterVersion is already set to Channel stable-4.9 Version 4.9.21"
+ts=2022-03-22T17:54:20Z level=info logger=controller_upgradeconfig msg="running step IsClusterUpgradable" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:54:20Z level=info logger=clusterversion msg="ClusterVersion is already set to Channel stable-4.9 Version 4.9.21"
+ts=2022-03-22T17:54:20Z level=info logger=controller_upgradeconfig msg="Skipping upgrade step IsClusterUpgradable" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:54:20Z level=info logger=controller_upgradeconfig msg="running step ClusterHealthyBeforeUpgrade" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:54:20Z level=info logger=clusterversion msg="ClusterVersion is already set to Channel stable-4.9 Version 4.9.21"
+ts=2022-03-22T17:54:20Z level=info logger=controller_upgradeconfig msg="Skipping upgrade step ClusterHealthyBeforeUpgrade" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:54:20Z level=info logger=controller_upgradeconfig msg="running step ExternalDependenciesAvailable" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:54:20Z level=info logger=clusterversion msg="ClusterVersion is already set to Channel stable-4.9 Version 4.9.21"
+ts=2022-03-22T17:54:20Z level=info logger=controller_upgradeconfig msg="Skipping upgrade step ExternalDependenciesAvailable" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:54:20Z level=info logger=controller_upgradeconfig msg="running step ComputeCapacityReserved" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:54:20Z level=info logger=controller_upgradeconfig msg="Do not need to scale up extra node(s) since the capacity reservation is disabled" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:54:20Z level=info logger=controller_upgradeconfig msg="running step ControlPlaneMaintenanceWindowCreated" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:54:20Z level=info logger=controller_upgradeconfig msg="running step UpgradeCommenced" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:54:20Z level=info logger=clusterversion msg="ClusterVersion is already set to Channel stable-4.9 Version 4.9.21"
+ts=2022-03-22T17:54:20Z level=info logger=controller_upgradeconfig msg="Skipping upgrade step UpgradeCommenced" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:54:20Z level=info logger=controller_upgradeconfig msg="running step ControlPlaneUpgraded" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:54:20Z level=info logger=controller_upgradeconfig msg="ControlPlaneUpgraded not done, skip following steps" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:55:09Z level=info logger=upgrade-config-manager msg="No UpgradeConfig manager configuration defined, will not sync"
+ts=2022-03-22T17:55:09Z level=error logger=upgrade-config-manager msg="can't read upgradeConfigManager configuration" error="no configManager defined in configuration"
+ts=2022-03-22T17:55:20Z level=info logger=controller_upgradeconfig msg="Reconciling UpgradeConfig" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:55:20Z level=info logger=controller_upgradeconfig msg="Current cluster status" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config status=Upgrading
+ts=2022-03-22T17:55:20Z level=info logger=controller_upgradeconfig msg="Cluster detected as already upgrading." Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:55:20Z level=info logger=clusterversion msg="ClusterVersion is already set to Channel stable-4.9 Version 4.9.21"
+ts=2022-03-22T17:55:20Z level=info logger=controller_upgradeconfig msg="running step StartedNotificationSent" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:55:21Z level=info logger=clusterversion msg="ClusterVersion is already set to Channel stable-4.9 Version 4.9.21"
+ts=2022-03-22T17:55:21Z level=info logger=controller_upgradeconfig msg="running step StartedNotificationSent" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:55:21Z level=info logger=clusterversion msg="ClusterVersion is already set to Channel stable-4.9 Version 4.9.21"
+ts=2022-03-22T17:55:21Z level=info logger=controller_upgradeconfig msg="running step IsClusterUpgradable" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:55:21Z level=info logger=clusterversion msg="ClusterVersion is already set to Channel stable-4.9 Version 4.9.21"
+ts=2022-03-22T17:55:21Z level=info logger=controller_upgradeconfig msg="Skipping upgrade step IsClusterUpgradable" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:55:21Z level=info logger=controller_upgradeconfig msg="running step ClusterHealthyBeforeUpgrade" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:55:21Z level=info logger=clusterversion msg="ClusterVersion is already set to Channel stable-4.9 Version 4.9.21"
+ts=2022-03-22T17:55:21Z level=info logger=controller_upgradeconfig msg="Skipping upgrade step ClusterHealthyBeforeUpgrade" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:55:21Z level=info logger=controller_upgradeconfig msg="running step ExternalDependenciesAvailable" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:55:21Z level=info logger=clusterversion msg="ClusterVersion is already set to Channel stable-4.9 Version 4.9.21"
+ts=2022-03-22T17:55:21Z level=info logger=controller_upgradeconfig msg="Skipping upgrade step ExternalDependenciesAvailable" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:55:21Z level=info logger=controller_upgradeconfig msg="running step ComputeCapacityReserved" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:55:21Z level=info logger=controller_upgradeconfig msg="Do not need to scale up extra node(s) since the capacity reservation is disabled" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:55:21Z level=info logger=controller_upgradeconfig msg="running step ControlPlaneMaintenanceWindowCreated" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:55:21Z level=info logger=controller_upgradeconfig msg="running step UpgradeCommenced" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:55:21Z level=info logger=clusterversion msg="ClusterVersion is already set to Channel stable-4.9 Version 4.9.21"
+ts=2022-03-22T17:55:21Z level=info logger=controller_upgradeconfig msg="Skipping upgrade step UpgradeCommenced" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:55:21Z level=info logger=controller_upgradeconfig msg="running step ControlPlaneUpgraded" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:55:21Z level=info logger=controller_upgradeconfig msg="ControlPlaneUpgraded not done, skip following steps" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:56:09Z level=info logger=upgrade-config-manager msg="No UpgradeConfig manager configuration defined, will not sync"
+ts=2022-03-22T17:56:09Z level=error logger=upgrade-config-manager msg="can't read upgradeConfigManager configuration" error="no configManager defined in configuration"
+ts=2022-03-22T17:56:21Z level=info logger=controller_upgradeconfig msg="Reconciling UpgradeConfig" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:56:21Z level=info logger=controller_upgradeconfig msg="Current cluster status" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config status=Upgrading
+ts=2022-03-22T17:56:21Z level=info logger=controller_upgradeconfig msg="Cluster detected as already upgrading." Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:56:21Z level=info logger=clusterversion msg="ClusterVersion is already set to Channel stable-4.9 Version 4.9.21"
+ts=2022-03-22T17:56:21Z level=info logger=controller_upgradeconfig msg="running step StartedNotificationSent" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:56:21Z level=info logger=clusterversion msg="ClusterVersion is already set to Channel stable-4.9 Version 4.9.21"
+ts=2022-03-22T17:56:21Z level=info logger=controller_upgradeconfig msg="running step StartedNotificationSent" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:56:21Z level=info logger=clusterversion msg="ClusterVersion is already set to Channel stable-4.9 Version 4.9.21"
+ts=2022-03-22T17:56:21Z level=info logger=controller_upgradeconfig msg="running step IsClusterUpgradable" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:56:21Z level=info logger=clusterversion msg="ClusterVersion is already set to Channel stable-4.9 Version 4.9.21"
+ts=2022-03-22T17:56:21Z level=info logger=controller_upgradeconfig msg="Skipping upgrade step IsClusterUpgradable" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:56:21Z level=info logger=controller_upgradeconfig msg="running step ClusterHealthyBeforeUpgrade" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:56:21Z level=info logger=clusterversion msg="ClusterVersion is already set to Channel stable-4.9 Version 4.9.21"
+ts=2022-03-22T17:56:21Z level=info logger=controller_upgradeconfig msg="Skipping upgrade step ClusterHealthyBeforeUpgrade" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:56:21Z level=info logger=controller_upgradeconfig msg="running step ExternalDependenciesAvailable" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:56:21Z level=info logger=clusterversion msg="ClusterVersion is already set to Channel stable-4.9 Version 4.9.21"
+ts=2022-03-22T17:56:21Z level=info logger=controller_upgradeconfig msg="Skipping upgrade step ExternalDependenciesAvailable" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:56:21Z level=info logger=controller_upgradeconfig msg="running step ComputeCapacityReserved" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:56:21Z level=info logger=controller_upgradeconfig msg="Do not need to scale up extra node(s) since the capacity reservation is disabled" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:56:21Z level=info logger=controller_upgradeconfig msg="running step ControlPlaneMaintenanceWindowCreated" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:56:21Z level=info logger=controller_upgradeconfig msg="running step UpgradeCommenced" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:56:21Z level=info logger=clusterversion msg="ClusterVersion is already set to Channel stable-4.9 Version 4.9.21"
+ts=2022-03-22T17:56:21Z level=info logger=controller_upgradeconfig msg="Skipping upgrade step UpgradeCommenced" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:56:21Z level=info logger=controller_upgradeconfig msg="running step ControlPlaneUpgraded" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:56:21Z level=info logger=controller_upgradeconfig msg="running step ControlPlaneMaintenanceWindowRemoved" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:56:21Z level=info logger=controller_upgradeconfig msg="running step WorkersMaintenanceWindowCreated" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:56:21Z level=info logger=controller_upgradeconfig msg="Worker nodes are already upgraded. Skipping worker maintenace for 4.9.21" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:56:21Z level=info logger=controller_upgradeconfig msg="running step WorkerNodesUpgraded" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:56:21Z level=info logger=controller_upgradeconfig msg="running step ComputeCapacityRemoved" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:56:21Z level=info logger=controller_upgradeconfig msg="Do not need to remove nodes since the capacity reservation is disabled" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:56:21Z level=info logger=controller_upgradeconfig msg="running step WorkersMaintenanceWindowRemoved" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:56:21Z level=info logger=controller_upgradeconfig msg="running step ClusterHealthyAfterUpgrade" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:56:22Z level=info logger=controller_upgradeconfig msg="running step PostUpgradeTasksCompleted" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:56:22Z level=info logger=controller_upgradeconfig msg="Fetching File Integrity for re-initialization" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:56:22Z level=info logger=controller_upgradeconfig msg="Setting re-init annotation" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:56:22Z level=info logger=controller_upgradeconfig msg="File Integrity Operator AIDE Datbase reinitialized" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:56:22Z level=info logger=controller_upgradeconfig msg="running step CompletedNotificationSent" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:56:22Z level=info logger=event-notifier msg="Upgrade-State: StateCompleted Description: Cluster has been successfully upgraded to version 4.9.21"
+ts=2022-03-22T17:56:52Z level=info logger=controller_machineconfigpool msg="Reconciling MachineConfigPool" Request.Namespace= Request.Name=worker
+ts=2022-03-22T17:57:09Z level=info logger=upgrade-config-manager msg="No UpgradeConfig manager configuration defined, will not sync"
+ts=2022-03-22T17:57:09Z level=error logger=upgrade-config-manager msg="can't read upgradeConfigManager configuration" error="no configManager defined in configuration"
+ts=2022-03-22T17:57:22Z level=info logger=controller_upgradeconfig msg="Reconciling UpgradeConfig" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:57:22Z level=info logger=controller_upgradeconfig msg="Current cluster status" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config status=Upgraded
+ts=2022-03-22T17:57:22Z level=info logger=controller_upgradeconfig msg="Cluster is already upgraded" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:58:01Z level=info logger=controller_upgradeconfig msg="Reconciling UpgradeConfig" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:58:01Z level=info logger=controller_upgradeconfig msg="Current cluster status" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config status=Upgraded
+ts=2022-03-22T17:58:01Z level=info logger=controller_upgradeconfig msg="Cluster is already upgraded" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T17:58:09Z level=info logger=upgrade-config-manager msg="No UpgradeConfig manager configuration defined, will not sync"
+ts=2022-03-22T17:58:09Z level=error logger=upgrade-config-manager msg="can't read upgradeConfigManager configuration" error="no configManager defined in configuration"
+ts=2022-03-22T17:59:09Z level=info logger=upgrade-config-manager msg="No UpgradeConfig manager configuration defined, will not sync"
+ts=2022-03-22T17:59:09Z level=error logger=upgrade-config-manager msg="can't read upgradeConfigManager configuration" error="no configManager defined in configuration"
+ts=2022-03-22T18:00:09Z level=info logger=upgrade-config-manager msg="No UpgradeConfig manager configuration defined, will not sync"
+ts=2022-03-22T18:00:09Z level=error logger=upgrade-config-manager msg="can't read upgradeConfigManager configuration" error="no configManager defined in configuration"
+ts=2022-03-22T18:01:09Z level=info logger=upgrade-config-manager msg="No UpgradeConfig manager configuration defined, will not sync"
+ts=2022-03-22T18:01:09Z level=error logger=upgrade-config-manager msg="can't read upgradeConfigManager configuration" error="no configManager defined in configuration"
+ts=2022-03-22T18:01:47Z level=info logger=controller_machineconfigpool msg="Reconciling MachineConfigPool" Request.Namespace= Request.Name=worker
+ts=2022-03-22T18:02:09Z level=info logger=upgrade-config-manager msg="No UpgradeConfig manager configuration defined, will not sync"
+ts=2022-03-22T18:02:09Z level=error logger=upgrade-config-manager msg="can't read upgradeConfigManager configuration" error="no configManager defined in configuration"
+ts=2022-03-22T18:03:09Z level=info logger=upgrade-config-manager msg="No UpgradeConfig manager configuration defined, will not sync"
+ts=2022-03-22T18:03:09Z level=error logger=upgrade-config-manager msg="can't read upgradeConfigManager configuration" error="no configManager defined in configuration"
+ts=2022-03-22T18:03:19Z level=info logger=controller_upgradeconfig msg="Reconciling UpgradeConfig" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T18:03:19Z level=info logger=controller_upgradeconfig msg="Current cluster status" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config status=Upgraded
+ts=2022-03-22T18:03:19Z level=info logger=controller_upgradeconfig msg="Cluster is already upgraded" Request.Namespace=test-managed-upgrade-operator Request.Name=managed-upgrade-config
+ts=2022-03-22T18:04:09Z level=info logger=upgrade-config-manager msg="No UpgradeConfig manager configuration defined, will not sync"
+ts=2022-03-22T18:04:09Z level=error logger=upgrade-config-manager msg="can't read upgradeConfigManager configuration" error="no configManager defined in configuration"
