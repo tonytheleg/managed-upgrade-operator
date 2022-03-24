@@ -24,7 +24,7 @@ func (c *clusterUpgrader) PostUpgradeProcedures(ctx context.Context, logger logr
 	//ocmConfig := &corev1.ConfigMap{}
 	//_ = c.client.Get(context.Background(), client.ObjectKey{Namespace: fioNamespace, Name: fioObject}, ocmConfig)
 
-	//if ocmBaseUrl.Host != "api.stage.openshift.com" {
+	//if ocmBaseUrl.Host != "TENTATIVE-FEDRAMP-OCM-URL" {
 	//	logger.Info("Non-FedRAMP environment...skipping PostUpgradeFIOReInit ")
 	//}
 	err := c.PostUpgradeFIOReInit(ctx, logger)
