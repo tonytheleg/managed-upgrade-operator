@@ -46,7 +46,7 @@ func (c *clusterUpgrader) PostUpgradeProcedures(ctx context.Context, logger logr
 
 	if cm.ConfigManager.Source == "OCM" {
 		ocmBaseUrl := strings.TrimPrefix(cm.ConfigManager.OcmBaseURL, "https://")
-		if ocmBaseUrl != "TENTATIVE-FEDRAMP-OCM-URL" {
+		if ocmBaseUrl != "api.stage.openshift.com" {
 			logger.Info("Non-FedRAMP environment...skipping PostUpgradeFIOReInit ")
 			return true, nil
 		}
@@ -67,7 +67,7 @@ func (c *clusterUpgrader) PostUpgradeFIOReInit(ctx context.Context, logger logr.
 		Version: "v1alpha1",
 	})
 
-	logger.Info("Fetching File Integrity for re-initialization")
+	logger.Info("FedRAMP Environment...Fetching File Integrity for re-initialization")
 	err := c.client.Get(context.TODO(), client.ObjectKey{Namespace: fioNamespace, Name: fioObject}, u)
 	if err != nil {
 		return fmt.Errorf("failed to fetch file integrity %s in %s namespace: %v", fioObject, fioNamespace, err)
