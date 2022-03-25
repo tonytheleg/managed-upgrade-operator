@@ -48,13 +48,14 @@ func (c *clusterUpgrader) PostUpgradeProcedures(ctx context.Context, logger logr
 		ocmBaseUrl := strings.TrimPrefix(cm.ConfigManager.OcmBaseURL, "https://")
 		if ocmBaseUrl != "TENTATIVE-FEDRAMP-OCM-URL" {
 			logger.Info("Non-FedRAMP environment...skipping PostUpgradeFIOReInit ")
+			return true, nil
 		}
 		err = c.PostUpgradeFIOReInit(ctx, logger)
 		if err != nil {
 			return false, err
 		}
 	}
-	return true, err
+	return true, nil
 }
 
 // PostUpgradeFIOReInit reinitializes the AIDE DB in file integrity operator to track file changes due to upgrades
