@@ -5,6 +5,8 @@ import (
 	"fmt"
 
 	"github.com/go-logr/logr"
+	"github.com/openshift/managed-upgrade-operator/pkg/configmanager"
+	"github.com/openshift/managed-upgrade-operator/pkg/specprovider"
 	"k8s.io/apimachinery/pkg/apis/meta/v1/unstructured"
 	"k8s.io/apimachinery/pkg/runtime/schema"
 	"sigs.k8s.io/controller-runtime/pkg/client"
@@ -21,16 +23,30 @@ func (c *clusterUpgrader) PostUpgradeProcedures(ctx context.Context, logger logr
 
 	// FIO is a FedRAMP specific operator, PostUpgradeFIOReInit is only for FedRAMP clusters
 	// Check if this is an FR environment via OCM first
+
+	/*
+		the upgradeconfigmanager uses a specprovider to pull upgrade config specifications
+		the specprovider interface has multiple implementations depending on the configuration in the configmap
+		which defines where to pull upgrade configs from.
+		if pulling from ocm, an ocmprovider will be used, which is what will then use the
+		base URL for communicating to ocm for the purpose of pulling upgrade policies.
+	*/
+	cmb := configmanager.NewBuilder()
+	spec, err := specprovider.NewBuilder().New(c.client, cmb)
+	if err != nil {
+		return false, err
+	}
+	fmt.Println(spec)
 	//ocmConfig := &corev1.ConfigMap{}
 	//_ = c.client.Get(context.Background(), client.ObjectKey{Namespace: fioNamespace, Name: fioObject}, ocmConfig)
 
 	//if ocmBaseUrl.Host != "TENTATIVE-FEDRAMP-OCM-URL" {
 	//	logger.Info("Non-FedRAMP environment...skipping PostUpgradeFIOReInit ")
 	//}
-	err := c.PostUpgradeFIOReInit(ctx, logger)
-	if err != nil {
-		return false, err
-	}
+	// err = c.PostUpgradeFIOReInit(ctx, logger)
+	// if err != nil {
+	// return false, err
+	// }
 	return true, err
 }
 
