@@ -28,10 +28,26 @@ type configManagerSpec struct {
 }
 
 // PostUpgradeProcedures are any misc tasks that are needed to be completed after an upgrade has finished to ensure healthy state
+// Currently the only task is to reinit file integrity operator due to changes that come from upgrades
 func (c *clusterUpgrader) PostUpgradeProcedures(ctx context.Context, logger logr.Logger) (bool, error) {
 
-	// FIO is a FedRAMP specific operator, PostUpgradeFIOReInit is only for FedRAMP clusters
-	// Check if this is an FR environment by looking at the MUO Operator config
+	frCluster, err := c.frClusterCheck(ctx)
+	if err != nil {
+		return false, err
+	}
+	if !frCluster {
+		logger.Info("Non-FedRAMP environment...skipping PostUpgradeFIOReInit ")
+		return true, nil
+	}
+	err = c.postUpgradeFIOReInit(ctx, logger)
+	if err != nil {
+		return false, err
+	}
+	return true, nil
+}
+
+// frClusterCheck checks to see if the upgrading cluster is a FedRAMP cluster to determine if we need to re-init the File Integrity Operator
+func (c *clusterUpgrader) frClusterCheck(ctx context.Context) (bool, error) {
 	ocmConfig := &corev1.ConfigMap{}
 	err := c.client.Get(context.TODO(), client.ObjectKey{Namespace: config.OperatorNamespace, Name: config.ConfigMapName}, ocmConfig)
 	if err != nil {
@@ -47,19 +63,14 @@ func (c *clusterUpgrader) PostUpgradeProcedures(ctx context.Context, logger logr
 	if cm.ConfigManager.Source == "OCM" {
 		ocmBaseUrl := strings.TrimPrefix(cm.ConfigManager.OcmBaseURL, "https://")
 		if ocmBaseUrl != "TENTATIVE-FEDRAMP-OCM-URL" {
-			logger.Info("Non-FedRAMP environment...skipping PostUpgradeFIOReInit ")
-			return true, nil
-		}
-		err = c.PostUpgradeFIOReInit(ctx, logger)
-		if err != nil {
-			return false, err
+			return false, nil
 		}
 	}
 	return true, nil
 }
 
-// PostUpgradeFIOReInit reinitializes the AIDE DB in file integrity operator to track file changes due to upgrades
-func (c *clusterUpgrader) PostUpgradeFIOReInit(ctx context.Context, logger logr.Logger) error {
+// postUpgradeFIOReInit reinitializes the AIDE DB in file integrity operator to track file changes due to upgrades
+func (c *clusterUpgrader) postUpgradeFIOReInit(ctx context.Context, logger logr.Logger) error {
 	u := &unstructured.Unstructured{}
 	u.SetGroupVersionKind(schema.GroupVersionKind{
 		Group:   "fileintegrity.openshift.io",
