@@ -46,7 +46,7 @@ func (c *clusterUpgrader) PostUpgradeProcedures(ctx context.Context, logger logr
 
 	if cm.ConfigManager.Source == "OCM" {
 		ocmBaseUrl := strings.TrimPrefix(cm.ConfigManager.OcmBaseURL, "https://")
-		if ocmBaseUrl != "api.stage.openshift.com" {
+		if ocmBaseUrl != "TENTATIVE-FEDRAMP-OCM-URL" {
 			logger.Info("Non-FedRAMP environment...skipping PostUpgradeFIOReInit ")
 			return true, nil
 		}
