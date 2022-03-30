@@ -62,7 +62,7 @@ func (c *clusterUpgrader) frClusterCheck(ctx context.Context) (bool, error) {
 
 	if cm.ConfigManager.Source == "OCM" {
 		ocmBaseUrl := strings.TrimPrefix(cm.ConfigManager.OcmBaseURL, "https://")
-		if ocmBaseUrl != "api.stage.openshift.com" {
+		if ocmBaseUrl != "INSERT-FEDRAMP-OCM-API-BASEURL-HERE" {
 			return false, nil
 		}
 	}
