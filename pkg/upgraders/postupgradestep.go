@@ -14,26 +14,30 @@ import (
 	"sigs.k8s.io/controller-runtime/pkg/client"
 )
 
-var (
-	fioNamespace     string = "openshift-file-integrity"
-	fioObject        string = "osd-fileintegrity"
-	reinitAnnotation        = map[string]string{"file-integrity.openshift.io/re-init": ""}
+const (
+	fioNamespace    string = "openshift-file-integrity"
+	fioObject       string = "osd-fileintegrity"
+	frOCMBaseDomain string = "openshiftusgov.com"
 )
 
-type UCConfigManager struct {
-	Source     string `yaml:"source"`
+var reinitAnnotation = map[string]string{"file-integrity.openshift.io/re-init": ""}
+
+// ugConfigManager stores the configManager section of the upgradeconfig manager configmap
+type ugConfigManager struct {
+	Source     string `yaml:"Source"`
 	OcmBaseURL string `yaml:"ocmBaseUrl"`
 }
 
-type UCConfigManagerSpec struct {
-	Config UCConfigManager `yaml:"configManager"`
+// ugConfigManagerSpec stores the config.yaml section of the upgradeconfig manager configmap
+type ugConfigManagerSpec struct {
+	Config ugConfigManager `yaml:"configManager"`
 }
 
 // PostUpgradeProcedures are any misc tasks that are needed to be completed after an upgrade has finished to ensure healthy state
 // Currently the only task is to reinit file integrity operator due to changes that come from upgrades
 func (c *clusterUpgrader) PostUpgradeProcedures(ctx context.Context, logger logr.Logger) (bool, error) {
 
-	frCluster, err := c.FrClusterCheck(ctx)
+	frCluster, err := c.frClusterCheck(ctx)
 	if err != nil {
 		return false, err
 	}
@@ -41,7 +45,7 @@ func (c *clusterUpgrader) PostUpgradeProcedures(ctx context.Context, logger logr
 		logger.Info("Non-FedRAMP environment...skipping PostUpgradeFIOReInit ")
 		return true, nil
 	}
-	err = c.PostUpgradeFIOReInit(ctx, logger)
+	err = c.postUpgradeFIOReInit(ctx, logger)
 	if err != nil {
 		return false, err
 	}
@@ -49,7 +53,7 @@ func (c *clusterUpgrader) PostUpgradeProcedures(ctx context.Context, logger logr
 }
 
 // frClusterCheck checks to see if the upgrading cluster is a FedRAMP cluster to determine if we need to re-init the File Integrity Operator
-func (c *clusterUpgrader) FrClusterCheck(ctx context.Context) (bool, error) {
+func (c *clusterUpgrader) frClusterCheck(ctx context.Context) (bool, error) {
 	ocmConfig := &corev1.ConfigMap{}
 	err := c.client.Get(context.TODO(), client.ObjectKey{Namespace: config.OperatorNamespace, Name: config.ConfigMapName}, ocmConfig)
 
@@ -57,7 +61,7 @@ func (c *clusterUpgrader) FrClusterCheck(ctx context.Context) (bool, error) {
 		return false, fmt.Errorf("failed to fetch %s config map to parse: %v", config.ConfigMapName, err)
 	}
 
-	var cm UCConfigManagerSpec
+	var cm ugConfigManagerSpec
 	data := fmt.Sprint(ocmConfig.Data["config.yaml"])
 	err = yaml.Unmarshal([]byte(data), &cm)
 
@@ -67,7 +71,7 @@ func (c *clusterUpgrader) FrClusterCheck(ctx context.Context) (bool, error) {
 
 	if cm.Config.Source == "OCM" {
 		ocmBaseUrl := strings.TrimPrefix(cm.Config.OcmBaseURL, "https://")
-		if ocmBaseUrl != "api.openshiftusgov.com" {
+		if !strings.Contains(ocmBaseUrl, frOCMBaseDomain) {
 			return false, nil
 		}
 	} else {
@@ -77,7 +81,7 @@ func (c *clusterUpgrader) FrClusterCheck(ctx context.Context) (bool, error) {
 }
 
 // postUpgradeFIOReInit reinitializes the AIDE DB in file integrity operator to track file changes due to upgrades
-func (c *clusterUpgrader) PostUpgradeFIOReInit(ctx context.Context, logger logr.Logger) error {
+func (c *clusterUpgrader) postUpgradeFIOReInit(ctx context.Context, logger logr.Logger) error {
 	u := &unstructured.Unstructured{}
 	u.SetGroupVersionKind(schema.GroupVersionKind{
 		Group:   "fileintegrity.openshift.io",
