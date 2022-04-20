@@ -17,7 +17,7 @@ import (
 const (
 	fioNamespace    string = "openshift-file-integrity"
 	fioObject       string = "osd-fileintegrity"
-	frOCMBaseDomain string = "openshiftusgov.com"
+	frOCMBaseDomain string = "openshift.com"
 )
 
 var reinitAnnotation = map[string]string{"file-integrity.openshift.io/re-init": ""}
