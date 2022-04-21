@@ -3,6 +3,7 @@ package upgraders
 import (
 	"context"
 	"fmt"
+	"net/url"
 	"strings"
 
 	"github.com/go-logr/logr"
@@ -17,7 +18,7 @@ import (
 const (
 	fioNamespace    string = "openshift-file-integrity"
 	fioObject       string = "osd-fileintegrity"
-	frOCMBaseDomain string = "openshift.com"
+	frOCMBaseDomain string = "openshiftusgov.com"
 )
 
 var reinitAnnotation = map[string]string{"file-integrity.openshift.io/re-init": ""}
@@ -70,9 +71,13 @@ func (c *clusterUpgrader) frClusterCheck(ctx context.Context) (bool, error) {
 	}
 
 	if cm.Config.Source == "OCM" {
-		ocmBaseUrl := strings.TrimPrefix(cm.Config.OcmBaseURL, "https://")
+		ocmBaseUrl, err := url.Parse(cm.Config.OcmBaseURL)
+		if err != nil {
+			return false, fmt.Errorf("failed to parse %s config map for OCM URL: %v", config.ConfigMapName, err)
+		}
 		fmt.Println("BASE URL:", ocmBaseUrl)
-		if !strings.Contains(ocmBaseUrl, frOCMBaseDomain) {
+		fmt.Println("Does string contain?:", strings.Contains(ocmBaseUrl.Host, frOCMBaseDomain))
+		if !strings.Contains(ocmBaseUrl.Host, frOCMBaseDomain) {
 			return false, nil
 		}
 	} else {
