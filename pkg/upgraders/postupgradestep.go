@@ -25,7 +25,7 @@ var reinitAnnotation = map[string]string{"file-integrity.openshift.io/re-init": 
 
 // ugConfigManager stores the configManager section of the upgradeconfig manager configmap
 type ugConfigManager struct {
-	Source     string `yaml:"Source"`
+	Source     string `yaml:"source"`
 	OcmBaseURL string `yaml:"ocmBaseUrl"`
 }
 
@@ -75,8 +75,6 @@ func (c *clusterUpgrader) frClusterCheck(ctx context.Context) (bool, error) {
 		if err != nil {
 			return false, fmt.Errorf("failed to parse %s config map for OCM URL: %v", config.ConfigMapName, err)
 		}
-		fmt.Println("BASE URL:", ocmBaseUrl)
-		fmt.Println("Does string contain?:", strings.Contains(ocmBaseUrl.Host, frOCMBaseDomain))
 		if !strings.Contains(ocmBaseUrl.Host, frOCMBaseDomain) {
 			return false, nil
 		}
