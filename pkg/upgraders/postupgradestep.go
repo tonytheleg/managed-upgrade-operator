@@ -71,6 +71,7 @@ func (c *clusterUpgrader) frClusterCheck(ctx context.Context) (bool, error) {
 
 	if cm.Config.Source == "OCM" {
 		ocmBaseUrl := strings.TrimPrefix(cm.Config.OcmBaseURL, "https://")
+		fmt.Println("BASE URL:", ocmBaseUrl)
 		if !strings.Contains(ocmBaseUrl, frOCMBaseDomain) {
 			return false, nil
 		}
