@@ -45,7 +45,7 @@ var _ = Describe("PostUpgradeStep", func() {
 			Data: map[string]string{
 				"config.yaml": `
                   configManager:
-                    Source: ` + testConfig.Config.Source + `
+                    source: ` + testConfig.Config.Source + `
                     ocmBaseUrl: ` + testConfig.Config.OcmBaseURL,
 			},
 		}
