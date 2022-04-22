@@ -40,7 +40,7 @@ spec:
         - name: managed-upgrade-operator
           # Replace this with the built image name
           # This will get replaced on deploy by /hack/generate-operator-bundle.py
-          image: quay.io/anatale/managed-upgrade-operator@sha256:7372ef8aaf2384d10a095679fc7fcf3e79bdd1b934399931bae730e9b1e67892
+          image: quay.io/anatale/managed-upgrade-operator@sha256:89e7c079176553cb57cc8ac0c351092370104b6d8a0742fbb1d24d7038084161
           command:
           - managed-upgrade-operator
           imagePullPolicy: Always
