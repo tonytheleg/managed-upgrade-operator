@@ -92,7 +92,7 @@ var _ = Describe("PostUpgradeStep", func() {
 				testConfig.Config.OcmBaseURL = "https://api.openshift.com"
 				testOperatorConfig.Data["config.yaml"] = `
                   configManager: 
-                    Source: ` + testConfig.Config.Source + `
+                    source: ` + testConfig.Config.Source + `
                     ocmBaseUrl: ` + testConfig.Config.OcmBaseURL
 			})
 			It("FIO re-init step should be skipped", func() {
@@ -112,7 +112,7 @@ var _ = Describe("PostUpgradeStep", func() {
 			testConfig.Config.Source = "TEST"
 			testOperatorConfig.Data["config.yaml"] = `
               configManager: 
-                Source: ` + testConfig.Config.Source + `
+                source: ` + testConfig.Config.Source + `
                 ocmBaseUrl: ` + testConfig.Config.OcmBaseURL
 		})
 		It("FIO re-init step should be skipped", func() {
